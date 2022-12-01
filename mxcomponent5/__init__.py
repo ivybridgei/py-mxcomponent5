@@ -1,7 +1,14 @@
 import logging
 from typing import Any
 
-from ._act5 import *
+try:
+    from ._act5 import *
+except ImportError:
+    try:
+        import comtypes
+        from _act5_comtypes import *
+    except ImportError:
+        from _act5_ctypes import *
 from .ActDefine import *
 
 __all__ = (
